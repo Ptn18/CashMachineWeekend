@@ -44,9 +44,13 @@ public class CashMachineApp extends Application {
         Button btnWithdraw = new Button("Withdraw");
         btnWithdraw.setOnAction(e -> {
             int amount = Integer.parseInt(field.getText());
-            cashMachine.withdraw(amount);
-
-            areaInfo.setText(cashMachine.toString());
+            if(amount > cashMachine.getBalance()){
+                areaInfo.setText("Insufficient Funds " + "You only have " + cashMachine.getBalance());
+            }else {
+                cashMachine.withdraw(amount);
+                // areaInfo.setText(cashMachine.toString());
+                areaInfo.setText(cashMachine.toString());
+            }
         });
 
         Button btnExit = new Button("Exit");

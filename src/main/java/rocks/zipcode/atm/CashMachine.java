@@ -47,6 +47,10 @@ public class CashMachine {
         }
     }
 
+    public double getBalance(){
+        return accountData.getBalance();
+    }
+
     public void exit() {
         if (accountData != null) {
             accountData = null;
@@ -55,7 +59,7 @@ public class CashMachine {
 
     @Override
     public String toString() {
-        return accountData != null ? accountData.toString() : "Try account 1000 or 2000 and click submit.";
+        return accountData != null ? accountData.toString() : "Try account 1000, 2000, 3000, 4000 or 5000 and click submit.";
     }
 
     private <T> void tryCall(Supplier<ActionResult<T> > action, Consumer<T> postAction) {
